@@ -7,7 +7,6 @@ html, body {
   padding: 0;
   width: 100svw;
   height: 100svh;
-
 }
 
 main {
@@ -22,7 +21,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  
+
   .canvas-wrapper {
     border: 1px dashed #888;
     flex-grow: 1;
