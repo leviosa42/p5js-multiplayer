@@ -1,12 +1,13 @@
 import _p5 from "p5";
 
-interface Touch {
+export interface Touch {
   x: number;
   y: number;
   winX: number;
   winY: number;
   id: number;
 }
+
 declare module "p5" {
   // NOTE: psInstanceExtension という拡張用と思われる便利なinterfaceがあるので、これを使う
   interface p5InstanceExtensions {
