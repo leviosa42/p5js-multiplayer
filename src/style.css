@@ -31,7 +31,11 @@ main {
     bottom: 0;
 
     canvas {
-      display: block;
-    }
+    display: block;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-touch-callout: none;
   }
 }
