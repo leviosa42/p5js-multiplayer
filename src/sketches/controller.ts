@@ -2,10 +2,12 @@ import p5 from "p5";
 
 import { Joystick } from "./components/Joystick.ts";
 import { Touch } from "../types.d.ts";
+import { Player } from "./components/Player.ts";
 
 export const sketch = (p5: p5) => {
   let joystick: Joystick | null = null;
-  let playerV: p5.Vector | null = null; // mockup player variable
+  // let playerV: p5.Vector | null = null; // mockup player variable
+  let player: Player | null = null;
 
   // NOTE: touch{Started, Moved, Ended} are not working...
   p5.mousePressed = (event: MouseEvent) => {
@@ -41,7 +43,16 @@ export const sketch = (p5: p5) => {
       radius: p5.height * 0.1,
       effectiveRadius: p5.height * 0.15,
     });
-    playerV = p5.createVector(p5.width / 2, p5.height / 2);
+    // playerV = p5.createVector(p5.width / 2, p5.height / 2);
+    player = new Player({
+      p5,
+      positionV: p5.createVector(p5.width / 2, p5.height / 2),
+      radius: 20,
+      weight: 1,
+      maxSpeed: 5,
+      maxForce: 10,
+      friction: 0.5,
+    });
   };
 
   p5.draw = () => {
@@ -66,21 +77,11 @@ export const sketch = (p5: p5) => {
     // player
     // player moving
     if (joystick!.inputV) {
-      playerV!.add(joystick!.inputV.copy().mult(5));
+      // playerV!.add(joystick!.inputV.copy().mult(5));
+      player!.applyForce(joystick!.inputV.copy().mult(1));
     }
 
-    p5.push();
-    p5.fill(0, 255, 0);
-    p5.circle(playerV!.x, playerV!.y, 20);
-    const directionV = joystick!.inputV?.copy().mult(50);
-    if (directionV) {
-      p5.line(
-        playerV!.x,
-        playerV!.y,
-        playerV!.x + directionV.x,
-        playerV!.y + directionV.y,
-      );
-    }
-    p5.pop();
+    player!.update();
+    player!.draw();
   };
 };
