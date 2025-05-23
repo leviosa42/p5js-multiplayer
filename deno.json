@@ -12,7 +12,7 @@
   "imports": {
     "@deno/vite-plugin": "npm:@deno/vite-plugin@^1.0.4",
     "@types/p5": "npm:@types/p5@^1.7.6",
-    "mqtt": "npm:mqtt@^5.12.0",
+    "mqtt": "npm:mqtt@^5.13.0",
     "p5": "npm:p5@^2.0.1",
     "vite": "npm:vite@^6.1.1"
   }
