@@ -72,7 +72,7 @@ export class Joystick {
     this.p5.text(`touchID: ${touch.id}`, 200, 20);
     if (this.inputV === null) return;
 
-    console.log("touch", touch);
+    // console.log("touch", touch);
     this.updateInputV(touch.x, touch.y);
   }
 
@@ -83,9 +83,9 @@ export class Joystick {
   }
 
   draw() {
-    this.p5.text(`touchID: ${this.touchID}`, 10, 20);
-    this.p5.text(`inputV: ${this.inputV}`, 10, 40);
-    this.p5.text(`positionV: ${this.positionV}`, 10, 60);
+    // this.p5.text(`touchID: ${this.touchID}`, 10, 20);
+    // this.p5.text(`inputV: ${this.inputV}`, 10, 40);
+    // this.p5.text(`positionV: ${this.positionV}`, 10, 60);
 
     // effective area
     this.p5.push();
