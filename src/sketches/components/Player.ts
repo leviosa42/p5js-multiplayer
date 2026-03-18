@@ -78,7 +78,17 @@ export class Player {
     this.p5.push();
 
     // player position
-    this.p5.ellipse(this.positionV.x, this.positionV.y, this.radius * 2);
+    this.p5.push();
+    this.p5.translate(this.positionV);
+    this.p5.rotate(this.velocityV.heading());
+    this.p5.beginShape();
+    const r = 8;
+    this.p5.vertex(r * 2, 0);
+    this.p5.vertex(-r, r);
+    this.p5.vertex(-r, -r);
+    this.p5.endShape(this.p5.CLOSE);
+    this.p5.pop();
+    // this.p5.ellipse(this.positionV.x, this.positionV.y, this.radius * 2);
 
     // player velocity
     this.p5.stroke(255, 0, 0);
